@@ -20,9 +20,11 @@ if [ -z "$domain" ]; then
   exit 1
 fi
 
+mkdir ./$domain
+
 mkcert \
-  -cert-file $domain-cert.pem \
-  -key-file $domain-key.pem \
+  -cert-file $domain/fullchain.pem \
+  -key-file $domain/privkey.pem \
   $domain
 
 cd ..

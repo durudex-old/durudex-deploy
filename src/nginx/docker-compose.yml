@@ -8,16 +8,29 @@ version: "3.8"
 services:
   nginx:
     image: "durudex-nginx:latest"
-    container_name: "discord-nginx"
+    container_name: "durudex-nginx"
     restart: "always"
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - "./certs/:/etc/nginx/certs"
+      - "./certs/:/etc/nginx/certs:ro"
+      - "durudex-nginx:/var/www/certbot/:ro"
     env_file: ".env"
     networks:
       - "durudex-test"
+
+  certbot:
+    image: "certbot/certbot:latest"
+    container_name: "durudex-certbot"
+    depends_on:
+      - "nginx"
+    volumes:
+      - "durudex-nginx:/var/www/certbot/:rw"
+
+volumes:
+  durudex-nginx:
+    name: "durudex-nginx"
 
 networks:
   durudex-test:

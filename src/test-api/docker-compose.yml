@@ -13,7 +13,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - "./configs/:/root/configs"
+      - "./configs/:/root/configs:ro"
     env_file: ".env"
     networks:
       - "durudex-test"

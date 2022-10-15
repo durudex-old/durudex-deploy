@@ -10,5 +10,5 @@ services:
     image: "durudex/discord-promo-bot:latest"
     container_name: "discord-promo-bot"
     volumes:
-      - "./configs/:/root/configs"
+      - "./configs/:/root/configs:ro"
     env_file: ".env"
