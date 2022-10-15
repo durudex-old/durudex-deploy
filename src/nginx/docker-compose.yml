@@ -1,0 +1,25 @@
+# Copyright © 2022 Durudex
+#
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+
+version: "3.8"
+
+services:
+  nginx:
+    image: "durudex-nginx:latest"
+    container_name: "discord-nginx"
+    restart: "always"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./certs/:/etc/nginx/certs"
+    env_file: ".env"
+    networks:
+      - "durudex-test"
+
+networks:
+  durudex-test:
+    driver: "bridge"
+    name: "durudex-test"

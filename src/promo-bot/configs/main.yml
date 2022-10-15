@@ -1,0 +1,20 @@
+# Copyright © 2022 Durudex
+#
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+
+database:
+  mongodb:
+    timeout: "10s"
+    database: "durudex"
+
+bot:
+  color: 0xa735ed
+  log-channel: "1000376533044695111"
+
+user:
+  review-role: "1000363996685271130"
+  min-age: "1440h"
+
+promo:
+  autosave-ttl: "5m"

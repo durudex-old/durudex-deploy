@@ -1,0 +1,24 @@
+# Copyright © 2022 Durudex
+#
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+
+version: "3.8"
+
+services:
+  api:
+    image: "durudex/durudex-test-api:latest"
+    container_name: "durudex-test-api"
+    hostname: "api.test.durudex.local"
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./configs/:/root/configs"
+    env_file: ".env"
+    networks:
+      - "durudex-test"
+
+networks:
+  durudex-test:
+    driver: "bridge"
+    name: "durudex-test"
