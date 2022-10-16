@@ -20,6 +20,7 @@
 ### 💡 Prerequisites
 
 + [Docker](https://www.docker.com)
++ [mkcert](https://github.com/FiloSottile/mkcert)
 
 ## ⚙️ Run
 

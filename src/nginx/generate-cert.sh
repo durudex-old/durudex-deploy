@@ -7,11 +7,6 @@
 
 cd certs/
 
-if [ -f './rootCA.pem' ]; then
-  echo "Delete old certificates..."
-  rm *.pem
-fi
-
 printf "Enter domain name: "
 read domain
 
@@ -20,11 +15,16 @@ if [ -z "$domain" ]; then
   exit 1
 fi
 
+if [ -d "$domain" ]; then
+  echo "Delete old certificates..."
+  rm -rf $domain
+fi
+
 mkdir ./$domain
 
 mkcert \
-  -cert-file $domain/fullchain.pem \
-  -key-file $domain/privkey.pem \
+  -cert-file "$domain/fullchain.pem" \
+  -key-file "$domain/privkey.pem" \
   $domain
 
 cd ..
