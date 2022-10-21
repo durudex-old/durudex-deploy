@@ -15,7 +15,6 @@ services:
       - "443:443"
     volumes:
       - "./certs/:/etc/nginx/certs:ro"
-      - "durudex-nginx:/var/www/certbot/:ro"
     env_file: ".env"
     networks:
       - "durudex-test"
@@ -25,8 +24,6 @@ services:
     container_name: "durudex-certbot"
     depends_on:
       - "nginx"
-    volumes:
-      - "durudex-nginx:/var/www/certbot/:rw"
 
 volumes:
   durudex-nginx:
