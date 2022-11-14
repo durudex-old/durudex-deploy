@@ -35,7 +35,7 @@ http {
         }
 
         location = /discord {
-            return 301 https://discord.gg/4qcXbeVehZ;
+            return 301 ${DISCORD_SERVER};
         }
     }
 

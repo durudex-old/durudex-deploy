@@ -7,6 +7,6 @@
 
 set -eu
 
-envsubst '${SERVER_NAME}' < /nginx.conf.template > /etc/nginx/nginx.conf
+envsubst '${DISCORD_SERVER} ${SERVER_NAME}' < /nginx.conf.template > /etc/nginx/nginx.conf
 
 exec "$@"
